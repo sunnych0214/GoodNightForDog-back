@@ -1,13 +1,31 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
-var app = express();
+const dbConnector = require('./dbConnector');
+dbConnector.authenticate()
+    .then(() => {
+        console.log('Connection Success');
+    })
+    .catch(err => {
+        console.log(err);
+    })
+
+const app = express();
+
+const User = require('./models/User');
+const Cp = require('./models/Cp');
+
+User.sync({force: false});
+Cp.sync({force: false});
+
+User.hasOne(Cp, {foreignKey: "user_id"});
+Cp.belongsTo(User, {foreignKey: "user_id"});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
