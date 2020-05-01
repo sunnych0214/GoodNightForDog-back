@@ -83,3 +83,5 @@ const DogInfo = connector.define("DogInfo",{
      update_dt,
      delete_dt
 });
+
+module.exports = DogInfo;
