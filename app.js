@@ -20,12 +20,43 @@ const app = express();
 
 const User = require('./models/User');
 const Cp = require('./models/Cp');
+const Report = require('./models/Report');
+const AdoptDogInfo = require('./models/AdoptDogInfo');
+const AdoptDogApply = require('./models/AdoptDogApply');
+const AdoptReview = require('./models/AdoptReview');
+const AdoptDogApplyPet = require('./models/AdoptDogApplyPet');
+const AdoptReviewComment = require('./models/AdoptReviewComment');
+
+
 
 User.sync({force: false});
 Cp.sync({force: false});
+Report.sync({force: false});
+AdoptDogInfo.sync({force: false});
+AdoptDogApply.sync({force: false});
+AdoptReview.sync({force: false});
+AdoptDogApplyPet.sync({force: false});
+AdoptReviewComment.sync({force: false});
 
 User.hasOne(Cp, {foreignKey: "user_id"});
-Cp.belongsTo(User, {foreignKey: "user_id"});
+
+Cp.belongsTo(User, {foreignKey: "user_id"}); 
+
+
+
+// 다 수정해야 함 해선 테이블
+// Report.belongsTo(User, {foreignKey: "user_id"});
+// AdoptDogInfo.belongsTo(AdoptDogApply, {foreignKey: "adopt_apply_id"});
+// AdoptDogInfo.belongsTo(Dog, {foreignKey: "dog_id"});
+// AdoptDogApply.belongsTo(User, {foreignKey: "user_id"});
+// AdoptReview.belongsTo(User, {foreignKey: "user_id"});
+// AdoptReview.belongsTo(AdoptDogApply, {foreignKey: "adopt_apply_id"});
+// AdoptDogApplyPet.belongsTo(AdoptDogApply, {foreignKey: "adopt_apply_id"});
+// AdoptReviewComment.belongsTo(AdoptReview, {foreignKey: "adopt_review_id"});
+// AdoptReviewComment.belongsTo(User, {foreignKey: "user_id"});
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
