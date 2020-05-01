@@ -39,3 +39,5 @@ const Dog = connector.define("Dog", {
       update_dt,
       delete_dt
 });
+
+module.exports = Dog;
