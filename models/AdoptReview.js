@@ -26,6 +26,7 @@ const AdoptReview = connector.define("AdoptReview", {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
+  
   adopt_apply_title: {
     type: Sequelize.STRING,
     allowNull: false,

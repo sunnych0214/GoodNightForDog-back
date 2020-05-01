@@ -9,11 +9,6 @@ const AdoptDogApplyPet = connector.define("AdoptDogApplyPet", {
     primaryKey: true,
     autoIncrement: true,
   },
-
-  adopt_apply_pet_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
   
   adopt_apply_id: {
     type: Sequelize.INTEGER,

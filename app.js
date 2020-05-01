@@ -26,8 +26,14 @@ const AdoptDogApply = require('./models/AdoptDogApply');
 const AdoptReview = require('./models/AdoptReview');
 const AdoptDogApplyPet = require('./models/AdoptDogApplyPet');
 const AdoptReviewComment = require('./models/AdoptReviewComment');
-
-
+const Dog = require("./models/Dog");
+const DogInfo = require("./models/DogInfo");
+const Donation = require("./models/Donation");
+const DonationInfo = require("./models/DonationInfo");
+const Missing = require("./models/Missing");
+const Chat = require("./models/Chat");
+const Message = require("./models/Message");
+const Volunteer = require("./models/Volunteer");
 
 User.sync({force: false});
 Cp.sync({force: false});
@@ -37,26 +43,44 @@ AdoptDogApply.sync({force: false});
 AdoptReview.sync({force: false});
 AdoptDogApplyPet.sync({force: false});
 AdoptReviewComment.sync({force: false});
+Dog.sync({force: false});
+DogInfo.sync({force: false});
+Donation.sync({force: false});
+DonationInfo.sync({force: false});
+Missing.sync({force: false});
+Chat.sync({force: false});
+Message.sync({force: false});
+Volunteer.sync({force: false});
 
 User.hasOne(Cp, {foreignKey: "user_id"});
-
 Cp.belongsTo(User, {foreignKey: "user_id"}); 
 
+User.hasMany(Report, {foreignKey: "user_id"});
+Report.belongsTo(User, {foreignKey: "user_id"});
 
+AdoptDogInfo.hasMany(AdoptDogApply, {foreignKey: "adopt_dog_info_id"});
+AdoptDogApply.belongsTo(AdoptDogInfo, {foreignKey: "adopt_dog_info_id"});
 
-// 다 수정해야 함 해선 테이블
-// Report.belongsTo(User, {foreignKey: "user_id"});
-// AdoptDogInfo.belongsTo(AdoptDogApply, {foreignKey: "adopt_apply_id"});
-// AdoptDogInfo.belongsTo(Dog, {foreignKey: "dog_id"});
-// AdoptDogApply.belongsTo(User, {foreignKey: "user_id"});
-// AdoptReview.belongsTo(User, {foreignKey: "user_id"});
-// AdoptReview.belongsTo(AdoptDogApply, {foreignKey: "adopt_apply_id"});
-// AdoptDogApplyPet.belongsTo(AdoptDogApply, {foreignKey: "adopt_apply_id"});
-// AdoptReviewComment.belongsTo(AdoptReview, {foreignKey: "adopt_review_id"});
-// AdoptReviewComment.belongsTo(User, {foreignKey: "user_id"});
+Dog.hasMany(AdoptDogInfo, {foreignKey: "dog_id"});
+AdoptDogInfo.belongsTo(Dog, {foreignKey: "dog_id"});
 
+User.hasMany(AdoptDogApply, {foreignKey: "user_id"});
+AdoptDogApply.belongsTo(User, {foreignKey: "user_id"});
 
+User.hasMany(AdoptReview, {foreignKey: "user_id"});
+AdoptReview.belongsTo(User, {foreignKey: "user_id"});
 
+AdoptDogApply.hasOne(AdoptReview, {foreignKey: "adopt_apply_id"});
+AdoptReview.belongsTo(AdoptDogApply, {foreignKey: "adopt_apply_id"});
+
+AdoptDogApply.hasMany(AdoptDogApplyPet, {foreignKey: "adopt_apply_id"});
+AdoptDogApplyPet.belongsTo(AdoptDogApply, {foreignKey: "adopt_apply_id"});
+
+AdoptReview.hasMany(AdoptReviewComment, {foreignKey: "adopt_review_id"});
+AdoptReviewComment.belongsTo(AdoptReview, {foreignKey: "adopt_review_id"});
+
+User.hasMany(AdoptReviewComment, {foreignKey: "user_id"});
+AdoptReviewComment.belongsTo(User, {foreignKey: "user_id"});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
