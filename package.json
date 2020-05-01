@@ -15,5 +15,19 @@
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.2",
     "sequelize": "^5.21.6"
-  }
+  },
+  "description": "*하룻밤 백엔드 프로젝트",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunnych0214/GoodNightForDog-back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunnych0214/GoodNightForDog-back/issues"
+  },
+  "homepage": "https://github.com/sunnych0214/GoodNightForDog-back#readme"
 }
