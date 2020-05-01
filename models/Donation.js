@@ -34,7 +34,10 @@ const Donation = connector.define("Donation", {
     type: Sequelize.INTEGER.UNSIGNED,
     allowNull: true
   },
-  title: {},
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   total_donationer: {
     type: Sequelize.INTEGER,
     allowNull: true

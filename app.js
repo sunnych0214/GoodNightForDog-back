@@ -45,12 +45,12 @@ AdoptDogApplyPet.sync({force: false});
 AdoptReviewComment.sync({force: false});
 Dog.sync({force: false});
 DogInfo.sync({force: false});
-Donation.sync({force: false});
-DonationInfo.sync({force: false});
 Missing.sync({force: false});
 Chat.sync({force: false});
 Message.sync({force: false});
 Volunteer.sync({force: false});
+Donation.sync({force: false});
+DonationInfo.sync({force: false});
 
 User.hasOne(Cp, {foreignKey: "user_id"});
 Cp.belongsTo(User, {foreignKey: "user_id"}); 
@@ -81,6 +81,26 @@ AdoptReviewComment.belongsTo(AdoptReview, {foreignKey: "adopt_review_id"});
 
 User.hasMany(AdoptReviewComment, {foreignKey: "user_id"});
 AdoptReviewComment.belongsTo(User, {foreignKey: "user_id"});
+
+User.hasMany(Donation, {foreignKey:"user_id"});
+Donation.belongsTo(User, {foreignKey : "user_id"});
+
+Donation.hasMany(DonationInfo, {foreignKey:"donation_id"});
+DonationInfo.belongsTo(Donation, {foreignKey:"donation_id"});
+
+User.hasMany(DonationInfo, {foreignKey:"user_id"});
+DonationInfo.belongsTo(User, {foreignKey:"user_id"});
+
+
+Dog.hasOne(DogInfo, {foreignKey:"dog_id"});
+DogInfo.belongsTo(Dog, {foreignKey:"dog_id"});
+
+// 지숀 작업
+// Missing
+// Chat
+// Message
+// Volunteer
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
