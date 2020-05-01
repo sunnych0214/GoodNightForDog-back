@@ -5,11 +5,18 @@ const metaFields = require("./MetaFields");
 const { state, create_dt } = metaFields;
 
 const Report = connector.define("Report", {
-  report_id: {
+
+  no: {
     type: Sequelize.INTEGER.UNSIGNED,
     primaryKey: true,
     autoIncrement: true,
   },
+
+  report_id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+
   category_code: {
     type: Sequelize.STRING,
     allowNull: false,
