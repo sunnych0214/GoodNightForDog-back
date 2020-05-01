@@ -6,7 +6,6 @@ const { state, create_dt, update_dt, delete_dt } = metaFields;
 
 const AdoptReview = connector.define("AdoptReview", {
 
-
   no: {
     type: Sequelize.INTEGER.UNSIGNED,
     primaryKey: true,
@@ -17,11 +16,12 @@ const AdoptReview = connector.define("AdoptReview", {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  
+                                     
   user_id: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
+                                     
   adopt_apply_id: {
     type: Sequelize.INTEGER,
     allowNull: false,

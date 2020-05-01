@@ -79,3 +79,5 @@ const Missing = connector.define("Missing",{
       update_dt,
       delete_dt
 });
+
+module.exports = Missing;

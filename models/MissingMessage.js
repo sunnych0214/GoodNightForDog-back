@@ -5,6 +5,11 @@ const metaFields = require("./MetaFields");
 const { state, create_dt, update_dt, delete_dt } = metaFields;
 
 const MissingMessage = connector.define("MissingMessage",{
+  no: {
+    type: Sequelize.INTEGER.UNSIGNED,
+    primaryKey: true,
+    autoIncrement: true,
+  },
     missing_message_id: {
         type: Sequelize.INTEGER.UNSIGNED,
         allowNull: false,
@@ -28,5 +33,7 @@ const MissingMessage = connector.define("MissingMessage",{
     missing_message_type: {
         type: Sequelize.CHAR,
         allowNull: false
-      },
+      }
 });
+
+module.exports = MissingMessage;

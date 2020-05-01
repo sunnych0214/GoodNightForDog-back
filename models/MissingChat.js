@@ -3,6 +3,11 @@ const Sequelize = require("sequelize");
 const metaFields = require("./MetaFields");
 
 const MissingChat = connector.define("MissingChat",{
+  no: {
+    type: Sequelize.INTEGER.UNSIGNED,
+    primaryKey: true,
+    autoIncrement: true,
+  },
     missing_chat_id: {
         type: Sequelize.INTEGER.UNSIGNED,
         allowNull: false,
@@ -24,3 +29,5 @@ const MissingChat = connector.define("MissingChat",{
         allowNull: false,
       }
 });
+
+module.exports = MissingChat;
