@@ -6,11 +6,17 @@ const { state, create_dt, update_dt, delete_dt } = metaFields;
 
 const AdoptReviewComment = connector.define("AdoptReviewComment", {
 
-  adopt_review_comment_id: {
+  no: {
     type: Sequelize.INTEGER.UNSIGNED,
     primaryKey: true,
     autoIncrement: true,
   },
+
+  adopt_review_comment_id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  
   adopt_review_id: {
     type: Sequelize.INTEGER,
     allowNull: false,

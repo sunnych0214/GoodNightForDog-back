@@ -4,11 +4,17 @@ const metaFields = require("./MetaFields");
 
 const AdoptDogApplyPet = connector.define("AdoptDogApplyPet", {
 
-  adopt_apply_pet_id: {
+  no: {
     type: Sequelize.INTEGER.UNSIGNED,
     primaryKey: true,
     autoIncrement: true,
   },
+
+  adopt_apply_pet_id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  
   adopt_apply_id: {
     type: Sequelize.INTEGER,
     allowNull: false,

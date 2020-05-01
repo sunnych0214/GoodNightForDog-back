@@ -6,11 +6,18 @@ const { state, create_dt, update_dt, delete_dt } = metaFields;
 
 const AdoptDogApply = connector.define("AdoptDogApply", {
 
-  adopt_apply_id: {
+
+  no: {
     type: Sequelize.INTEGER.UNSIGNED,
     primaryKey: true,
     autoIncrement: true,
   },
+
+  adopt_apply_id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+    
   adopt_kind: {
     type: Sequelize.STRING,
     allowNull: false,
