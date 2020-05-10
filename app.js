@@ -100,6 +100,24 @@ DogInfo.belongsTo(Dog, {foreignKey:"dog_id"});
 // Chat
 // Message
 // Volunteer
+Missing.hasMany(Chat, {foreignKey: "missing_id"});
+Chat.belongsTo(Missing, {foreignKey: "missing_id"}); 
+
+Missing.hasOne(Chat, {foreignKey: "category_id"});
+Chat.belongsTo(Missing, {foreignKey: "category_id"}); 
+
+User.hasMany(Missing, {foreignKey: "user_id"});
+Missing.belongsTo(User, {foreignKey: "user_id"});
+
+Chat.hasMany(Message, {foreignKey:"missing_chat_id"});
+Message.belongsTo(Chat, {foreignKey:"missing_chat_id"});
+
+//유저 아이디 갖고오는거 아래처럼 다 끌고오는게 맞는지?...
+User.hasMany(Volunteer, {foreignKey: "user_id"});
+Volunteer.belongsTo(User, {foreignKey: "user_id"});
+
+User.hasMany(Message, {foreignKey: "user_id"});
+Message.belongsTo(User, {foreignKey: "user_id"});
 
 
 // view engine setup
