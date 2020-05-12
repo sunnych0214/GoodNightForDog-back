@@ -13,17 +13,17 @@ const AdoptReview = connector.define("AdoptReview", {
   },
 
   adopt_review_id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
                                      
   user_id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
                                      
   adopt_apply_id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
   

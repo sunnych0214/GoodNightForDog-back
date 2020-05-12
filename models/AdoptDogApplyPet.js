@@ -11,7 +11,7 @@ const AdoptDogApplyPet = connector.define("AdoptDogApplyPet", {
   },
   
   adopt_apply_id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
   adopt_apply_pet_kind: {

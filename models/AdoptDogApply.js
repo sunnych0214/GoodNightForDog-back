@@ -75,7 +75,7 @@ const AdoptDogApply = connector.define("AdoptDogApply", {
     allowNull: false,
   },
   user_id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
   state,

@@ -11,11 +11,6 @@ const Report = connector.define("Report", {
     primaryKey: true,
     autoIncrement: true,
   },
-
-  report_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
     
   category_code: {
     type: Sequelize.STRING,
@@ -26,7 +21,7 @@ const Report = connector.define("Report", {
     allowNull: false,
   },
   user_id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
   state,

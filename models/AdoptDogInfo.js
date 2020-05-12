@@ -19,7 +19,7 @@ const AdoptDogInfo = connector.define("AdoptDogInfo", {
     allowNull: false,
   },
   dog_id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER.UNSIGNED,
     allowNull: true,
   }
 }, {

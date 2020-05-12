@@ -13,16 +13,17 @@ const AdoptReviewComment = connector.define("AdoptReviewComment", {
   },
 
   adopt_review_comment_id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
   
   adopt_review_id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
+
   adopt_review_comment: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.TEXT,
     allowNull: false,
   },
   adopt_review_comment_parent_id: {
