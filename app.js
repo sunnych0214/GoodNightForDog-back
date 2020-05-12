@@ -100,11 +100,6 @@ DogInfo.belongsTo(Dog, {foreignKey:"dog_id"});
 // Chat
 // Message
 // Volunteer
-Missing.hasMany(Chat, {foreignKey: "missing_id"});
-Chat.belongsTo(Missing, {foreignKey: "missing_id"}); 
-
-Missing.hasOne(Chat, {foreignKey: "category_id"});
-Chat.belongsTo(Missing, {foreignKey: "category_id"}); 
 
 User.hasMany(Missing, {foreignKey: "user_id"});
 Missing.belongsTo(User, {foreignKey: "user_id"});

@@ -22,10 +22,6 @@ const Chat = connector.define("MissingChat", {
     type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },  
-  missing_id: {
-    type: Sequelize.INTEGER.UNSIGNED,
-    allowNull: false,
-  },
   category_id: {
     type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
