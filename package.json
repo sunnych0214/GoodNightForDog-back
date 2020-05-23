@@ -1,0 +1,34 @@
+{
+  "name": "goodnightfordog-back",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "~1.9.1",
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.2",
+    "sequelize": "^5.21.6"
+  },
+  "description": "*하룻밤 백엔드 프로젝트",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunnych0214/GoodNightForDog-back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunnych0214/GoodNightForDog-back/issues"
+  },
+  "homepage": "https://github.com/sunnych0214/GoodNightForDog-back#readme"
+}

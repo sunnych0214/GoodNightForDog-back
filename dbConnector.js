@@ -21,7 +21,8 @@ const sequelize = new Sequelize(
             $like: Op.like,
             $ne: Op.ne,
             $between: Op.between,
-            $gte: Op.gte
+            $gte: Op.gte,
+            $not: Op.not
         },
         logging: false
     }
