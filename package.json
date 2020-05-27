@@ -13,10 +13,11 @@
     "express": "^4.16.4",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.15",
-    "morgan": "^1.9.1",
+    "moment": "^2.26.0",
+    "morgan": "~1.9.1",
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.2",
+    "pbkdf2-password": "^1.2.1",
     "sequelize": "^5.21.6"
   },
   "description": "*하룻밤 백엔드 프로젝트",
