@@ -3,7 +3,6 @@ const router = express.Router();
 const userService = require('./../services/UserService');
 
 router.post('/CooperationJoin', (req, res, next) => {
-  const { user_id } = req.body;
 
 
   var datetime = new Date();
@@ -45,7 +44,7 @@ router.post('/CooperationJoin', (req, res, next) => {
     name: name.trim(),
     phone_number: phone_number.trim(),
     address: address.trim() + " | " + address_detail.trim(),
-    user_type: 'P',
+    user_type: 'C',
     personal_info_yn: personal_info_yn,
     use_agreement_yn: use_agreement_yn,
     state: 7,
