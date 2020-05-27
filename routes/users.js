@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userService = require("./../services/UserService");
+const cpService = require("./../services/CpService");
 const utill = require("./../utill");
 const jwt = require("jsonwebtoken");
 const bkfd2Password = require("pbkdf2-password");
@@ -52,17 +53,20 @@ router.post("/CooperationJoin", (req, res, next) => {
       create_dt: datetime,
     };
   
-    const cp = {
-      user_id: user_id.trim(),
-      boss_name: boss_name.trim(),
-      boss_num: boss_num.trim(),
-      biz_num: biz_num.trim(),
-      dog_cnt: dog_cnt,
-      biz_img: biz_img, //이미지도 그대로 넣으면 될지?..
-    };
-  
     userService.create(user).then((result) => {
-      userService.create(cp).then((result) => {
+
+      const cp = {
+        user_id: result.no,
+        boss_name: boss_name.trim(),
+        boss_num: boss_num.trim(),
+        biz_num: biz_num.trim(),
+        dog_cnt: dog_cnt,
+        biz_img: biz_img, //이미지도 그대로 넣으면 될지?..
+        state: 7,
+        create_dt: datetime
+      };
+
+      cpService.create(cp).then((result) => {
         // 회원가입 실패
         if (!result)
           res.json(
