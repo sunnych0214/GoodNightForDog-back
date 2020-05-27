@@ -8,6 +8,7 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 
 const dbConnector = require("./dbConnector");
+
 dbConnector
   .authenticate()
   .then(() => {

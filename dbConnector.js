@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const dbconfig = require('./config').db;
+const dbconfig = require('./config.json').db;
 const Op = Sequelize.Op;
 
 const schema =  dbconfig.dbschema;
