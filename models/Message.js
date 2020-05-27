@@ -2,34 +2,34 @@ const connector = require("../dbConnector");
 const Sequelize = require("sequelize");
 const metaFields = require("./MetaFields");
 
-const AdoptDogApplyPet = connector.define("AdoptDogApplyPet", {
+const { state, create_dt, update_dt, delete_dt } = metaFields;
 
+const MissingMessage = connector.define("MissingMessage", {
   no: {
     type: Sequelize.INTEGER.UNSIGNED,
     primaryKey: true,
     autoIncrement: true,
   },
-  
-  adopt_apply_id: {
+  chat_id: {
     type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
-  adopt_apply_pet_kind: {
-    type: Sequelize.STRING,
+  user_id: {
+    type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
-  adopt_apply_pet_sex: {
-    type: Sequelize.STRING,
+  message_text: {
+    type: Sequelize.TEXT,
     allowNull: false,
   },
-  adopt_apply_pet_neuter: {
-    type: Sequelize.INTEGER,
+  message_type: {
+    type: Sequelize.CHAR,
     allowNull: false,
-  }
-}, {
-  freezeTableName: true,
-  underscored: true,
-  timestamps: false
+  },
+  state,
+  create_dt,
+  update_dt,
+  delete_dt
 });
 
-module.exports = AdoptDogApplyPet;
+module.exports = MissingMessage;

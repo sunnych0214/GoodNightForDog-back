@@ -2,47 +2,34 @@ const connector = require("../dbConnector");
 const Sequelize = require("sequelize");
 const metaFields = require("./MetaFields");
 
-const { state, create_dt, update_dt, delete_dt } = metaFields;
+const { state, create_dt, update_dt, delete_dt } = metaFields; 
 
-const AdoptReview = connector.define("AdoptReview", {
-
+const Chat = connector.define("MissingChat", {
   no: {
     type: Sequelize.INTEGER.UNSIGNED,
     primaryKey: true,
     autoIncrement: true,
   },
-
-  adopt_review_id: {
+  chat_id: {
     type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
-                                     
-  user_id: {
+  chat_writer_id: {
     type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
-                                     
-  adopt_apply_id: {
+  chat_guest_id: {
     type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
-  },
-  
-  adopt_apply_title: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  adopt_apply_content: {
-    type: Sequelize.TEXT,
+  },  
+  category_id: {
+    type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
   state,
   create_dt,
   update_dt,
   delete_dt
-}, {
-  freezeTableName: true,
-  underscored: true,
-  timestamps: false
 });
 
-module.exports = AdoptReview;
+module.exports = Chat;

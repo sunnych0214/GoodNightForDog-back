@@ -5,11 +5,14 @@ const metaFields = require("./MetaFields");
 const { state, create_dt, update_dt, delete_dt } = metaFields;
 
 const AdoptDogApply = connector.define("AdoptDogApply", {
-
-  adopt_apply_id: {
+  no: {
     type: Sequelize.INTEGER.UNSIGNED,
     primaryKey: true,
     autoIncrement: true,
+  },
+  adopt_dog_info_id: {
+    type: Sequelize.INTEGER.UNSIGNED,
+    allowNull: false
   },
   adopt_kind: {
     type: Sequelize.STRING,
@@ -25,10 +28,6 @@ const AdoptDogApply = connector.define("AdoptDogApply", {
   },
   adopt_apply_sex: {
     type: Sequelize.STRING,
-    allowNull: false,
-  },
-  adopt_apply_sex: {
-    type: Sequelize.INTEGER,
     allowNull: false,
   },
   adopt_apply_army: {
@@ -76,7 +75,7 @@ const AdoptDogApply = connector.define("AdoptDogApply", {
     allowNull: false,
   },
   user_id: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER.UNSIGNED,
     allowNull: false,
   },
   state,
