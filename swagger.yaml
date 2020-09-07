@@ -1,0 +1,91 @@
+swagger: '2.0'
+info:
+  title: 'Good Nigh For Dog Api Docs'
+  version: '1.0.0'
+  description: '하룻밤 프로젝트 Api 문서'
+tags:
+  - name: Auth
+    description: Auth 관련 Api
+schemes:
+  - http
+paths:
+  /login:
+    post:
+      tags:
+        - Auth
+      summary: Login
+      description: ''
+      operationId: login
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/LoginRequest'
+      responses:
+        200:
+          description: '로그인 결과'
+          schema:
+            $ref: '#/definitions/AuthResponse'
+        500:
+          description: '로그인 오류'
+          schema:
+            $ref: '#/definitions/AuthResponse'
+securityDefinitions:
+  petstore_auth:
+    type: oauth2
+    authorizationUrl: 'http://petstore.swagger.io/oauth/dialog'
+    flow: implicit
+    scopes:
+      'write:pets': modify pets in your account
+      'read:pets': read your pets
+  api_key:
+    type: apiKey
+    name: api_key
+    in: header
+definitions:
+  LoginRequest:
+    type: object
+    required:
+      - user_id
+      - passwd
+    properties:
+      user_id:
+        type: string
+        description: '유저 아이디'
+      passwd:
+        type: string
+        description: '유저 비밀번호'
+  AuthResponse:
+    type: object
+    required:
+      - status
+      - success
+    properties: 
+      status:
+        type: integer
+        description: Response Code
+      success:
+        type: boolean
+        description: 로그인 성공 여부
+        default: true
+      data:
+        type: object
+        description: 유저 데이터
+        default: {
+          user_id: 'test'
+        }
+      message:
+        type: string
+        description: 오류 사유
+      error:
+        type: object
+        description: 오류 Data
+externalDocs:
+  description: Find out more about Swagger
+  url: 'http://swagger.io'
